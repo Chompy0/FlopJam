@@ -10,8 +10,9 @@ public class Button : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.TryGetComponent(out Clone clone))
         {
+
             if (buttonType == ButtonType.PressButtonDoor && !isPressed)
             {
                 isPressed = true;
@@ -33,7 +34,7 @@ public class Button : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.TryGetComponent(out Clone clone))
         {
             if (buttonType == ButtonType.ToggleButtonDoor)
             {
