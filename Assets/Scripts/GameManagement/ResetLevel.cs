@@ -8,6 +8,10 @@ public class ResetLevel : MonoBehaviour
 
     public event Action OnPlayerRespawn;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void OnRespawn()
     {

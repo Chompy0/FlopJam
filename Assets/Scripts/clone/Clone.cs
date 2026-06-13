@@ -8,7 +8,7 @@ public class Clone : MonoBehaviour
 {
 
     [SerializeField] GameObject player;
-    public List<Vector3> Playertransforms;
+    public List<Vector3> playertransforms;
 
     public List<Vector3> posList;
 
@@ -18,6 +18,7 @@ public class Clone : MonoBehaviour
     void Start()
     {
         saveCoroutine = StartCoroutine(savePlayerPosCoroutine());
+        ResetLevel.Instance.OnPlayerRespawn += Loop;
     }
 
     [ContextMenu("Loop")]
@@ -29,9 +30,9 @@ public class Clone : MonoBehaviour
         if (executeCoroutine != null)
             StopCoroutine(executeCoroutine);
 
-        posList = new List<Vector3>(Playertransforms);
+        posList = new List<Vector3>(playertransforms);
 
-        Playertransforms.Clear();
+        playertransforms.Clear();
 
         executeCoroutine = StartCoroutine(ExecuteActionCoroutine());
         saveCoroutine = StartCoroutine(savePlayerPosCoroutine());
@@ -41,7 +42,7 @@ public class Clone : MonoBehaviour
     {
         while (true)
         {
-            Playertransforms.Add(player.transform.position);
+            playertransforms.Add(player.transform.position);
             yield return new WaitForSeconds(0.05f);
         }
     }
@@ -50,9 +51,7 @@ public class Clone : MonoBehaviour
 
         foreach (Vector3 pos in posList)
         {
-            print(posList);
             transform.position = pos;
-            print(transform.position);
             yield return new WaitForSeconds(0.05f);
         }
 
