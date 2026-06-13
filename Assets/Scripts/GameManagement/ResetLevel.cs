@@ -16,7 +16,5 @@ public class ResetLevel : MonoBehaviour
     public void OnRespawn()
     {
         OnPlayerRespawn?.Invoke();
-
-
     }
 }
