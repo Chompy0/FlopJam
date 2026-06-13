@@ -5,7 +5,8 @@ public class Button : MonoBehaviour
     public bool isPressed = false;
     public ButtonType buttonType;
     [SerializeField] private Door door;
-    [SerializeField] private Button linkedButton; 
+    [SerializeField] private Button linkedButton;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,10 +42,13 @@ public class Button : MonoBehaviour
             }
             if (buttonType == ButtonType.LinkedButtonDoor)
             {
-                if(!door.isOpen)
-                {
-                    isPressed = false;
-                }
+
+                isPressed = false;
+
+            }
+            if (buttonType == ButtonType.PressButtonDoor)
+            {
+                isPressed = false;
             }
         }
     }

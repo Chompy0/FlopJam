@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        ResetLevel.Instance.OnPlayerRespawn += CloseDoor;
     }
     public void OpenDoor()
     {
@@ -20,5 +21,4 @@ public class Door : MonoBehaviour
         isOpen = false;
         boxCollider.enabled = true;
     }
-
 }
