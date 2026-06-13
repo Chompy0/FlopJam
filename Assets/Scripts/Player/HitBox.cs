@@ -17,7 +17,6 @@ public class HitBox : MonoBehaviour
     }
       private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
         movementScript.direction = movementScript.direction * -1;
     }
 }
