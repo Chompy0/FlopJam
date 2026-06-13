@@ -11,14 +11,10 @@ public class HitBox : MonoBehaviour
     movementScript = GetComponentInParent<Movement>();
   }
 
-  // Update is called once per frame
-  void Update()
-  {
-
-  }
   private void OnTriggerEnter2D(Collider2D collision)
   {
-    if (collision.TryGetComponent(out TilemapCollider2D tilemap) || collision.TryGetComponent(out Clone component))
+    if (collision.TryGetComponent(out TilemapCollider2D tilemap) || collision.TryGetComponent(out Clone clone) || collision.TryGetComponent(out Door door))
       movementScript.direction = movementScript.direction * -1;
   }
+
 }
