@@ -33,7 +33,17 @@ public class Respawn : MonoBehaviour
         if (collision.CompareTag("Obstacle"))
         {
             StartCoroutine(RespawnCoroutine(1f));
-
+            AudioManager.Instance.PlaySound(AudioType.Die,AudioSourceType.Game);
+        }
+        if (collision.CompareTag("Enemy"))
+        {
+            StartCoroutine(RespawnCoroutine(1f));
+            AudioManager.Instance.PlaySound(AudioType.DieByEnemy,AudioSourceType.Game);
+        }
+        if (collision.CompareTag("Void"))
+        {
+            StartCoroutine(RespawnCoroutine(1f));
+            AudioManager.Instance.PlaySound(AudioType.DieByVoid,AudioSourceType.Game);
         }
     }
     IEnumerator RespawnCoroutine(float duration)

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum AudioType
 {
-    Game,
+    DieByVoid,
     Jump,
     Die,
     Checkpoint,

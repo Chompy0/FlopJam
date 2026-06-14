@@ -40,6 +40,7 @@ public class Jump : MonoBehaviour
         {
             isGrounded = false;
             rb.linearVelocityY = jumpForce;
+            AudioManager.Instance.PlaySound(AudioType.Jump,AudioSourceType.Player);
         }
     }
 }
