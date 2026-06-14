@@ -51,7 +51,8 @@ public class Clone : MonoBehaviour
 
         foreach (Vector3 pos in posList)
         {
-            transform.position = pos;
+            
+            transform.position = Vector3.Lerp(transform.position,pos, 1);
             yield return new WaitForSeconds(0.05f);
         }
 
