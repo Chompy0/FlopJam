@@ -3,15 +3,19 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     Clone clone;
+    SpriteRenderer spriteRenderer;
+    public Sprite checkpointSprite;
+
 
     [SerializeField] Camera cam;
 
-    Vector3 camPosition;
+    public Vector3 camPosition;
 
 
     void Start()
     {
         clone = FindAnyObjectByType<Clone>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +26,7 @@ public class Checkpoint : MonoBehaviour
             {
                 playerRespawn.SetSpawnPoint(transform);
                 cam.transform.position = Vector3.Lerp(cam.transform.position,camPosition,1);
+                spriteRenderer.sprite = checkpointSprite;
                 clone.playertransforms.Clear();
             }
         }   
