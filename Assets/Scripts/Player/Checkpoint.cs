@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
@@ -10,6 +11,8 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] Camera cam;
 
     public Vector3 camPosition;
+
+    public int camSize;
 
 
     void Start()
@@ -27,6 +30,8 @@ public class Checkpoint : MonoBehaviour
             {
                 playerRespawn.SetSpawnPoint(transform);
                 cam.transform.position = Vector3.Lerp(cam.transform.position,camPosition,1);
+                cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, camSize,1);
+                
                 spriteRenderer.sprite = checkpointSprite;
                 clone.playertransforms.Clear();
             }
