@@ -12,7 +12,7 @@ public class Checkpoint : MonoBehaviour
 
     public Vector3 camPosition;
 
-    public int camSize;
+    public float camSize;
 
 
     void Start()

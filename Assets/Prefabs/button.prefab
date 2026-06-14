@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2815609752cdce1489a489abc301ea50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Button
-  isPressed: 1
+  isPressed: 0
   buttonType: 0
   door: {fileID: 0}
   linkedButton: {fileID: 0}
