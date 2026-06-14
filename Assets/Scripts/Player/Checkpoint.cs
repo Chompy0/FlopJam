@@ -22,6 +22,7 @@ public class Checkpoint : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             Respawn playerRespawn = collision.GetComponent<Respawn>();
+            AudioManager.Instance.PlaySound(AudioType.Checkpoint,AudioSourceType.Game);
             if (playerRespawn != null)
             {
                 playerRespawn.SetSpawnPoint(transform);
