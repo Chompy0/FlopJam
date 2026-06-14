@@ -4,6 +4,10 @@ public class Checkpoint : MonoBehaviour
 {
     Clone clone;
 
+    [SerializeField] Camera cam;
+
+    Vector3 camPosition;
+
 
     void Start()
     {
@@ -17,6 +21,7 @@ public class Checkpoint : MonoBehaviour
             if (playerRespawn != null)
             {
                 playerRespawn.SetSpawnPoint(transform);
+                cam.transform.position = Vector3.Lerp(cam.transform.position,camPosition,1);
                 clone.playertransforms.Clear();
             }
         }   
