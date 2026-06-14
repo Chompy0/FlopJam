@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
         isOpen = true;
         boxCollider.enabled = false;
         spriteRenderer.sprite = openSprite;
+        AudioManager.Instance.PlaySound(AudioType.Door,AudioSourceType.Game);
     }
 
     public void CloseDoor()

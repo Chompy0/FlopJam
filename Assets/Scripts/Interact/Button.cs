@@ -17,17 +17,20 @@ public class Button : MonoBehaviour
             {
                 isPressed = true;
                 door.OpenDoor();
+                AudioManager.Instance.PlaySound(AudioType.Button,AudioSourceType.Game);
             }
             if (buttonType == ButtonType.ToggleButtonDoor && !isPressed)
             {
                 isPressed = true;
                 door.OpenDoor();
+                AudioManager.Instance.PlaySound(AudioType.Button,AudioSourceType.Game);
             }
             if (buttonType == ButtonType.LinkedButtonDoor)
             {
                 isPressed = true;
                 if (linkedButton != null && linkedButton.isPressed)
                     door.OpenDoor();
+                    AudioManager.Instance.PlaySound(AudioType.Button,AudioSourceType.Game);
             }
         }
     }
